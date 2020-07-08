@@ -48,7 +48,6 @@
         <url>scm:git:git@github.com:abelsromero/asciidoctor-maven-plugin.git</url>
         <connection>scm:git:git@github.com:abelsromero/asciidoctor-maven-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:abelsromero/asciidoctor-maven-plugin.git</developerConnection>
-        <tag>HEAD</tag>
   </scm>
 
     <issueManagement>

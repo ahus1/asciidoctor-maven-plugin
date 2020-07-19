@@ -11,23 +11,18 @@
  */
 package org.asciidoctor.maven.http;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.handler.codec.http.DefaultFullHttpResponse;
-import io.netty.handler.codec.http.FullHttpRequest;
-import io.netty.handler.codec.http.HttpHeaders;
-import io.netty.handler.codec.http.HttpMethod;
-import io.netty.handler.codec.http.HttpResponseStatus;
-import io.netty.handler.codec.http.HttpVersion;
+import io.netty.handler.codec.http.*;
 import io.netty.util.CharsetUtil;
 import org.apache.commons.io.IOUtils;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 
 public class AsciidoctorHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
     private static final String HTML_MEDIA_TYPE = "text/html";
@@ -48,14 +43,27 @@ public class AsciidoctorHandler extends SimpleChannelInboundHandler<FullHttpRequ
 
     @Override
     public void channelRead0(final ChannelHandlerContext ctx, final FullHttpRequest msg) throws Exception {
-        if (msg.getMethod() != HttpMethod.GET) {
-            final DefaultFullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
-                    HttpResponseStatus.METHOD_NOT_ALLOWED,
-                    Unpooled.copiedBuffer("<html><body>Only GET method allowed</body></html>", CharsetUtil.UTF_8));
-            response.headers().set(HttpHeaders.Names.CONTENT_TYPE, HTML_MEDIA_TYPE);
+
+        if (msg.getMethod() == HttpMethod.HEAD) {
+            final DefaultFullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.RESET_CONTENT);
+
+            final File file = deduceFile(msg.getUri());
+
+            final HttpHeaders headers = response.headers();
+            headers.set(HttpHeaders.Names.CONTENT_LENGTH, file.length());
+            headers.set(HttpHeaders.Names.EXPIRES, 0);
+            headers.set(HttpHeaders.Names.CONTENT_TYPE, HTML_MEDIA_TYPE);
             send(ctx, response);
             return;
         }
+//        if (msg.getMethod() != HttpMethod.GET) {
+//            final DefaultFullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
+//                    HttpResponseStatus.METHOD_NOT_ALLOWED,
+//                    Unpooled.copiedBuffer("<html><body>Only GET method allowed</body></html>", CharsetUtil.UTF_8));
+//            response.headers().set(HttpHeaders.Names.CONTENT_TYPE, HTML_MEDIA_TYPE);
+//            send(ctx, response);
+//            return;
+//        }
 
         final File file = deduceFile(msg.getUri());
 

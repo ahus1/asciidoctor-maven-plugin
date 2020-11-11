@@ -1,0 +1,6 @@
+name: asciidoctor-maven-plugin
+title: Asciidoctor Maven Plugin
+version: '2.1.0'
+nav:
+- modules/plugin/nav.adoc
+- modules/project/nav.adoc

@@ -1,0 +1,38 @@
+= Contributing
+
+// TODO
+
+== Hacking
+
+Developer setup for hacking on this project isn't very difficult.
+The requirements are very small:
+
+* Java 8 or higher
+* Maven 3
+
+Everything else will be brought in by Maven.
+This is a typical Maven Java project, nothing special.
+You should be able to use IntelliJ, Eclipse, or Netbeans without any issue for hacking on the project.
+
+== Building
+
+Standard Maven build:
+
+ mvn clean install
+
+== Testing
+
+Unit tests are written with http://spockframework.org/[Spock].
+This will be downloaded by Maven and can be run from IntelliJ without any additional setup.
+Tests are run simply by:
+
+ ./mvnw clean test
+
+Or any of the other goals which run tests.
+
+Integration tests under `src/it` are run using link:https://maven.apache.org/plugins/maven-invoker-plugin/[maven-invoker-plugin] and the `runt-its` profile.
+To only run them without excluding unit tests, use:
+
+ ./mvnw clean verify -DskipTests -Prun-its
+
+To run all tests at once just use `./mvnw clean verify -DskipTests -Prun-its`.

@@ -1,0 +1,3 @@
+* Plugin setup
+** xref:README.adoc[README]
+** xref:v2-migration-guide.adoc[v2.x.x migration guide]

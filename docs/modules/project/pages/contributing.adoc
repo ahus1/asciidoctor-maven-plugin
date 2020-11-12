@@ -1,6 +1,7 @@
 = Contributing
 
-// TODO
+// TODO intro
+// Not sure if /project is the right place
 
 == Hacking
 

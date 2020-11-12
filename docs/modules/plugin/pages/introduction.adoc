@@ -1,0 +1,82 @@
+= Asciidoctor Maven Plugin
+ifdef::env-github,env-browser[]
+:toc: preamble
+endif::[]
+ifndef::env-github[:icons: font]
+// URIs
+:project-repo: asciidoctor/asciidoctor-maven-plugin
+:uri-repo: https://github.com/{project-repo}
+:uri-asciidoc: http://asciidoc.org
+:uri-asciidoctor: http://asciidoctor.org
+:uri-examples: https://github.com/asciidoctor/asciidoctor-maven-examples
+:uri-maven: http://maven.apache.org
+// GitHub customization
+ifdef::env-github[]
+:badges:
+:tag: master
+:!toc-title:
+:tip-caption: :bulb:
+:note-caption: :paperclip:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+// Badges
+ifdef::badges[]
+image:https://ci.appveyor.com/api/projects/status/chebmu91f08dlmsc/branch/master?svg=true["Build Status (AppVeyor)", link="https://ci.appveyor.com/project/asciidoctor/asciidoctor-maven-plugin"]
+image:http://img.shields.io/travis/asciidoctor/asciidoctor-maven-plugin/master.svg["Build Status (Travis CI)", link="https://travis-ci.org/asciidoctor/asciidoctor-maven-plugin"]
+image:{uri-repo}/workflows/Build/badge.svg[Build Status,link={uri-repo}/actions]
+image:http://img.shields.io/coveralls/{project-repo}/master.svg["Coverage Status", link="https://coveralls.io/r/{project-repo}?branch=master"]
+image:https://maven-badges.herokuapp.com/maven-central/org.asciidoctor/asciidoctor-maven-plugin/badge.svg["Maven Central",link="https://maven-badges.herokuapp.com/maven-central/org.asciidoctor/asciidoctor-maven-plugin"]
+endif::[]
+
+The Asciidoctor Maven Plugin is the official way to convert your {uri-asciidoc}[AsciiDoc] documentation using {uri-asciidoctor}[Asciidoctor] from an {uri-maven}[Apache Maven] build.
+
+The conversion can happen in 2 flavors:
+
+. as a Maven plugin: AsciiDoc files are converted at full Asciidoctor power independently from Maven site,
+
+. as a Maven site integration: AsciiDoc files are integrated with Maven reports, which comes with
+a few limitations (see below for details).
+
+ifndef::env-site[]
+.Translations of the document are available in the following languages:
+* link:README_zh-CN.adoc[汉语]
+endif::[]
+
+
+ifeval::['{tag}' == 'master']
+[NOTE]
+====
+You're viewing the documentation for the upcoming release.
+If you're looking for the documentation for an older release, please refer to one of the following tags: +
+{uri-repo}/tree/asciidoctor-maven-plugin-2.0.0#readme[2.0.0]
+&hybull;
+{uri-repo}/tree/asciidoctor-maven-plugin-1.6.0#readme[1.6.0]
+&hybull;
+{uri-repo}/tree/asciidoctor-maven-plugin-1.5.8#readme[1.5.8]
+&hybull;
+{uri-repo}/tree/asciidoctor-maven-plugin-1.5.7.1#readme[1.5.7.1]
+&hybull;
+{uri-repo}/tree/asciidoctor-maven-plugin-1.5.6#readme[1.5.6]
+&hybull;
+{uri-repo}/tree/asciidoctor-maven-plugin-1.5.5#readme[1.5.5]
+&hybull;
+{uri-repo}/tree/asciidoctor-maven-plugin-1.5.3#readme[1.5.3]
+&hybull;
+{uri-repo}/tree/asciidoctor-maven-plugin-1.5.2.1#readme[1.5.2.1]
+====
+endif::[]
+
+// == Watching for changes
+
+// TODO
+
+// == Zipping output into a bundle
+
+// TODO
+
+// == Previewing generated content in the browser
+
+// TODO

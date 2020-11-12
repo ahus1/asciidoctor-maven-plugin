@@ -1,6 +1,12 @@
-name: asciidoctor-maven-plugin
 title: Asciidoctor Maven Plugin
+name: asciidoctor-maven-plugin
 version: '2.1.0'
+asciidoc:
+  attributes:
+    release-version: 2.1.0
+    maven-site-plugin-version: 3.9.0
+    page-pagination: ''
 nav:
 - modules/plugin/nav.adoc
+- modules/site-integration/nav.adoc
 - modules/project/nav.adoc

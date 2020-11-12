@@ -1,3 +1,9 @@
 * Plugin setup
-** xref:README.adoc[README]
+** xref:introduction.adoc[Introduction/Features?]
+** xref:maven-plugin.adoc[Maven plugin]
+*** Goals
+**** xref:goals/process-asciidoc.adoc[process-asciidoc]
+**** xref:goals/auto-refresh.adoc[auto-refresh]
+**** xref:goals/http.adoc[http]
+** xref:tips-and-tricks.adoc[Tips and tricks]
 ** xref:v2-migration-guide.adoc[v2.x.x migration guide]

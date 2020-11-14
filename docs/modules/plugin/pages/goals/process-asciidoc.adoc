@@ -1,0 +1,52 @@
+[[process-asciidoc-goal]]
+= Converting document (`process-asciidoc`)
+
+include::partial$breaking-changes-warning.adoc[]
+
+== Setup
+
+As this is a typical Maven plugin, simply declare the plugin in the `<plugins>` section of your POM file:
+
+[source,xml,subs=attributes+]
+.Plugin declaration in pom.xml
+----
+<plugins>
+    <plugin>
+        <groupId>org.asciidoctor</groupId>
+        <artifactId>asciidoctor-maven-plugin</artifactId>
+        <version>{release-version}</version> <!--1-->
+        ...
+    </plugin>
+</plugins>
+----
+<1> As this plugin tracks the version of Asciidoctor, you can use whichever version of Asciidoctor you prefer.
+
+[source,xml]
+.Conversion setup
+----
+<plugin>
+    ...
+    <executions>
+        <execution>
+            <id>output-html</id>              <!--1-->
+            <phase>generate-resources</phase> <!--2-->
+            <goals>
+                <goal>process-asciidoc</goal> <!--3-->
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+----
+<1> This is simply an unique id for the execution.
+<2> The asciidoctor-maven-plugin does not run in any phase by default, so one must be specified.
+<3> The Asciidoctor Maven plugin conversion goal.
+
+== Configuration
+
+There are several configuration options that the Asciidoctor Maven plugin accepts, which parallel the options in Asciidoctor:
+
+include::partial$common-mojo-parameters.adoc[]
+
+include::partial$setting-boolean-attributes.adoc[]
+
+

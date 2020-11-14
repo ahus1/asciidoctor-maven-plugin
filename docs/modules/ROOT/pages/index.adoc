@@ -1,8 +1,34 @@
-= Asciidoctor Maven Plugin Documentation
-:uri-opal: https://opalrb.com
+= Asciidoctor Maven Plugin
+ifdef::env-github,env-browser[]
+:toc: preamble
+endif::[]
+ifndef::env-github[:icons: font]
+// URIs
+:project-repo: asciidoctor/asciidoctor-maven-plugin
+:uri-repo: https://github.com/{project-repo}
+:uri-asciidoc: http://asciidoc.org
+:uri-asciidoctor: http://asciidoctor.org
+:uri-examples: https://github.com/asciidoctor/asciidoctor-maven-examples
+:uri-maven: http://maven.apache.org
+// GitHub customization
+ifdef::env-github[]
+:badges:
+:tag: master
+:!toc-title:
+:tip-caption: :bulb:
+:note-caption: :paperclip:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
 
-//TODO
-Asciidoctor.js brings AsciiDoc to the JavaScript world!
+The Asciidoctor Maven Plugin is the official way to convert your {uri-asciidoc}[AsciiDoc] documentation using {uri-asciidoctor}[Asciidoctor] from an {uri-maven}[Apache Maven] build.
 
-This project uses {uri-opal}[Opal] to transpile https://asciidoctor.org[Asciidoctor], a modern implementation of AsciiDoc, from Ruby to JavaScript to produce _asciidoctor.js_.
-The _asciidoctor.js_ script can be run on any JavaScript platform, including Node.js, GraalVM and, of course, a web browser.
+The conversion can happen in 2 flavors:
+
+. as a Maven plugin: AsciiDoc files are converted at full Asciidoctor power independently from Maven site,
+
+. as a Maven site integration: AsciiDoc files are integrated with Maven reports, which comes with
+a few limitations (see below for details).
+
+// TODO add notes about goal to provide a thin layer.

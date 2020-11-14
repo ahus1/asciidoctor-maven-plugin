@@ -1,0 +1,15 @@
+== Setting boolean values
+
+Boolean attributes in asciidoctor, such as `sectnums`, `linkcss` or `copycss` can be set with a value of `true` and unset with a value of `false`.
+
+=== Examples
+
+In the `<attributes>` part of the Asciidoctor Maven Plugin configuration:
+
+[source,xml]
+----
+<sectnums>true</sectnums>
+<linkcss>false</linkcss>
+----
+
+

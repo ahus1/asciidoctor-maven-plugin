@@ -1,11 +1,13 @@
 [[http-goal]]
-=== HTML life preview (`http`)
+= HTML life preview (`http`)
 
 The `http` goal allows starting an embedded http server to access content from the generated output directory, while the plugin updates it.
 
 Modified sources will be updated similarly to how <<auto-refresh-goal,auto-refresh>> works.
 And at the same time, HTML contents will be automatically refreshed on the web browser without need for manual steps.
 Just open the file through the provided url that will appear in the console and write.
+
+== Setup
 
 Note than the file extension is not necessary for html files.
 Bu default, the document _manual.html_ placed in the root path will be accessible as _pass:c[http://localhost:2000/manual]_.
@@ -52,9 +54,13 @@ This feature shares the following features (and limitations) with <<auto-refresh
 * To take full advantage of configuration options, it must be explicitly configured in _pom.xml_ (see <<auto-refresh-goal-config-note,note>>).
 * `failIf` configurations will make the goal fail to start, but won't stop the server once started.
 
-==== Configuration
+== Configuration
 
 The mojo accepts the same configurations as `process-asciidoc`, `refresh` mojos and adds:
+
+include::partial$common-mojo-parameters.adoc[]
+
+include::partial$setting-boolean-attributes.adoc[]
 
 port:: server port.
 Defaults to `2000`.
